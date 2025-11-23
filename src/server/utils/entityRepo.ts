@@ -1,4 +1,4 @@
-import { AppDataSource } from '../config/data-source'
-import { User } from '../model/user.entity'
+import { AppDataSource } from "../database/database";
+import { User } from "../model/user.entity";
 
-export const userRepo = AppDataSource.getRepository(User)
+export const userRepo = AppDataSource.getRepository(User);

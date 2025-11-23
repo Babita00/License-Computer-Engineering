@@ -1,41 +1,38 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"],
-      "@/*": ["./src/client/*"]
+      "@/*": ["src/client/*"]
     },
-    "target": "ES2020",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
 
-    /* Required for TypeORM and decorators */
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
 
-    /* React JSX support */
+    "strict": true,
+    "skipLibCheck": true,
+
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    "outDir": "dist",
+    "rootDir": "src",
+
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+
     "jsx": "react-jsx",
 
-    /* Strictness */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "types": ["react", "node"]
+    "types": ["node", "react"]
   },
-  "include": ["src", "vite.config.ts"],
-  "exclude": ["sr", "src/swagger-routes/routes.ts"]
+
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

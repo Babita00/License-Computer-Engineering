@@ -1,9 +1,10 @@
 // src/model/user.entity.ts
 import { Entity, Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { BaseEntity } from "../../src/server/baseEntity/base.entity";
 import { Question } from "./question.entity";
+import { BaseEntity } from "../baseEntity/base.entity";
+import { TABLE_NAME } from "../constants/tableName";
 
-@Entity({ name: "users" })
+@Entity({ name: TABLE_NAME.USER })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;

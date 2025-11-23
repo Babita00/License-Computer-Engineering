@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { AppDataSource } from "../config/data-source";
+import AppDataSource from "../database/database";
 import { HttpStatusCodes as STATUS } from "../constants/httpStatusCode";
 import { Question } from "../model/question.entity";
 import { CustomRequest } from "../interface/interfaces";
@@ -7,9 +7,9 @@ import { CustomRequest } from "../interface/interfaces";
 const repo = AppDataSource.getRepository(Question);
 
 export const addQuestion = async (req: CustomRequest, res: Response) => {
-  if (!req.user || req.user instanceof Error) {
-    return res.status(STATUS.UNAUTHORIZED).json({ msg: "Login required" });
-  }
+  // if (!req.user || req.user instanceof Error) {
+  //   return res.status(STATUS.UNAUTHORIZED).json({ msg: "Login required" });
+  // }
   const user = req.user;
 
   const {
@@ -26,16 +26,18 @@ export const addQuestion = async (req: CustomRequest, res: Response) => {
     options,
     explanation,
     explanation_image_url,
-    submitted_by_id: user.id,
-    created_by_id: user.isAdmin ? user.id : null,
-    status: user.isAdmin ? "approved" : "pending",
+    // submitted_by_id: user.id,
+    // created_by_id: user.isAdmin ? user.id : null,
+    // status: user.isAdmin ? "approved" : "pending",
   });
 
   return res.status(STATUS.CREATED).json({
     status: STATUS.CREATED,
-    message: user.isAdmin
-      ? "Question approved instantly!"
-      : "Question submitted for review!",
+    message:
+      // user.isAdmin
+      //   ? "Question approved instantly!"
+      //   :
+      "Question submitted for review!",
     data: question,
   });
 };

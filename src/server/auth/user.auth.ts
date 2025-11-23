@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { HttpStatusCodes as STATUS } from "../constants/httpStatusCode";
 import { User } from "../model/user.entity";
 import { CustomRequest } from "../interface/interfaces";
-import { AppDataSource } from "../config/data-source";
+import AppDataSource from "../database/database";
 
 const JWT_SECRET = process.env.JWT_SECRET!;
 

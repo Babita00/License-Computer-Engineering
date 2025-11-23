@@ -2,11 +2,11 @@ import "reflect-metadata";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { AppDataSource } from "./config/data-source";
+import AppDataSource from "./database/database";
+import app from "./app";
 
 dotenv.config();
 
-const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
@@ -21,5 +21,5 @@ AppDataSource.initialize()
   })
   .catch((err) => {
     console.error("DB Connection Failed:", err);
-    process.exit(1); // ← this is the only missing thing
+    process.exit(1);
   });

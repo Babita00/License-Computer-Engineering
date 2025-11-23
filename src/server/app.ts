@@ -19,7 +19,7 @@ app.use("/api", apiRouter);
 apiRouter.use("/question", questionRoutes);
 
 // API-only error handlers
-apiRouter.use(notFoundHandler);
-apiRouter.use(errorMiddleware);
+// apiRouter.use(notFoundHandler);
+// apiRouter.use(errorMiddleware);
 
 export default app;

@@ -1,9 +1,10 @@
 import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { BaseEntity } from "../../src/server/baseEntity/base.entity";
+import { TABLE_NAME } from "../constants/tableName";
 import { User } from "./user.entity";
 import { IOption } from "../interface/interfaces";
+import { BaseEntity } from "../baseEntity/base.entity";
 
-@Entity({ name: "questions" })
+@Entity({ name: TABLE_NAME.QUESTION })
 export class Question extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
